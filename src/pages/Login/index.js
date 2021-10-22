@@ -3,7 +3,7 @@ import {Content, BoxLogin, FormLogin} from './styles';
 import {useHistory} from 'react-router-dom';
 import api from '../../services/api';
 import HeaderPage from "../../components/Header";
-import 'react-toastify/dist/ReactToastify.css';
+import {toast} from 'react-toastify';
 
 const Login = () => {
 
@@ -27,10 +27,12 @@ const Login = () => {
             api.defaults.headers.authorization = `Bearer ${data.token}`
             localStorage.setItem("@token", data.token);
 
+            toast.success('Usuário autenticado!');
+
             history.push('/resource');
 
         }catch(error){
-            alert("Falha na autenticação. Usuário ou senha inválidos!")
+            toast.error('Falha na autenticação. Usuário ou senha inválidos!');
         }
     };
 
