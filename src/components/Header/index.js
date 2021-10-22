@@ -1,5 +1,6 @@
 import React from "react";
 import {Container, Header} from './styles'
+import {Link} from 'react-router-dom';
 
 const HeaderPage = ({name}) => {
     return (
@@ -7,7 +8,11 @@ const HeaderPage = ({name}) => {
             <Header>
                 <h1>MaddisEF</h1>
 
-                <button> {name} </button>
+                <button><Link to={
+                    name === "Cadastrar"
+                    ? "/create-user"
+                    : "/login"
+                }>{name}</Link></button>
             </Header>
         </Container>
     );

@@ -66,6 +66,11 @@ export const NewResource = styled.div`
         border-radius: 5px;
         background: var(--color-blue);
         color: var(--color-tertiary);
+        > a {
+            background-color: inherit;
+            color: inherit;
+            text-decoration: none;
+        }
         &:hover{
             opacity: 0.87;
             cursor: pointer;

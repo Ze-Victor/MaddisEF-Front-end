@@ -27,6 +27,11 @@ export const Header = styled.div`
     outline: none;
     font-size: 16px;
     cursor: pointer;
+    > a {
+      background-color: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
     &:hover, &:focus {
       text-decoration: underline;
     }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Content, BoxArea, Resource, NewResource } from "./styles";
 import HeaderPage from "../../components/Header";
+import { Link } from "react-router-dom";
 //import jwt_decode from 'jwt-decode';
 
 const Resources = () => {
@@ -35,7 +36,7 @@ const Resources = () => {
             <Content>
                 <HeaderPage name="Sair"/>
                 <NewResource>
-                        <button>Novo+</button>
+                        <button><Link to="/create-resource">Novo+</Link></button>
                 </NewResource>
                 <BoxArea>
                     {resources?.map(resource => {
