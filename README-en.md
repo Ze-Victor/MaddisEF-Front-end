@@ -13,7 +13,7 @@
 - [Used tecnologies](#-used-technologies)
 - [How to download and execute?](#-how-to-download-and-execute)
   - [Dowloading the project](#%EF%B8%8F-downloading-the-project)
-- [Author](#-author)
+- [Author](#-Author)
  
 ## 🏷️ About
  
@@ -47,7 +47,7 @@ Open your operational system terminal and execute the following commands:
  yarn start
 ```
  
-## 🏷️  Author
+## 🏷️ Author
  
 Self-authored project and developed uniquely for testing and training, with no commercial purposes.
  
