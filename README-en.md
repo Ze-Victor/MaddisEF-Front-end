@@ -13,7 +13,7 @@
 - [Used tecnologies](#-used-technologies)
 - [How to download and execute?](#-how-to-download-and-execute)
   - [Dowloading the project](#%EF%B8%8F-downloading-the-project)
-- [Author](#-Author)
+- [Author](#%EF%B8%8F-author)
  
 ## 🏷️ About
  
