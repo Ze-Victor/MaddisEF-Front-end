@@ -47,7 +47,7 @@ Open your operational system terminal and execute the following commands:
  yarn start
 ```
  
-##🏷️ Author
+## 🏷️  Author
  
 Self-authored project and developed uniquely for testing and training, with no commercial purposes.
  
