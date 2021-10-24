@@ -3,6 +3,8 @@ import jwt_decode from 'jwt-decode';
 import { Content, FormArea, Form } from './styles';
 import api from '../../services/api'
 import HeaderPage from "../../components/Header";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const CreateResource = () => {
 
@@ -11,6 +13,8 @@ const CreateResource = () => {
     const [contentForm, setContentForm] = useState('');
 
     const [user, setUser] = useState([]);
+
+    const history = useHistory();
 
     useEffect(() => {
 
@@ -22,7 +26,10 @@ const CreateResource = () => {
 
     }, []);
 
-    const handleSubmitForm = async () => {
+    const handleSubmitForm = async (event) => {
+
+        event.preventDefault();
+
         try {
             const payload = {
                 title: titleForm,
@@ -31,12 +38,13 @@ const CreateResource = () => {
                 user_id: user.sub
             }
 
-            await api.post('/resource', payload);
-
-            alert('Recurso inserido!');
+            api.post('/resource', payload);
+            toast.success('Recurso inserido!');
+        
+            history.push('/resource');    
 
         }catch(err){
-            alert(err);
+            toast.error('Erro ao inserir recurso!');
         }
     } 
 
