@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import api from "../../services/api";
 import { Content, FormArea, Form } from './styles';
 import HeaderPage from "../../components/Header";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const CreateUser = () => {
 
@@ -10,7 +12,12 @@ const CreateUser = () => {
     const [userForm, setUserForm] = useState('');
     const [passwordForm, setPasswordForm] = useState('')
 
-    const handleSubmitForm = async () => {
+    const history = useHistory();
+
+    const handleSubmitForm = async (event) => {
+
+        event.preventDefault();
+
         try {
             const payload = {
                 name: nameForm,
@@ -20,9 +27,11 @@ const CreateUser = () => {
             }
 
             await api.post('/user', payload);
+            toast.success('Usuário criado!');
+            history.push('/login');
 
         }catch(err){
-            alert(err);
+            toast.error(err);
         }
     }
 
