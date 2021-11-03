@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import CreateUser from './pages/CreateUser'
 import Resources from './pages/Resources'
 import CreateResource from './pages/CreateResource'
+import UpdateResource from './pages/UpdateResource'
 
 const Routes = () => {
     return (
@@ -20,6 +21,9 @@ const Routes = () => {
             </Route>
             <Route exact path="/create-resource">
                 <CreateResource />
+            </Route>
+            <Route path="/update-resource/:id">
+                <UpdateResource />
             </Route>
         </Switch>
     );

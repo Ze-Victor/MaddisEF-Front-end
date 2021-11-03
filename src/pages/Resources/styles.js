@@ -5,6 +5,7 @@ export const Content = styled.div`
     flex-direction: column;
     overflow-x: hidden;
     align-items: center;
+    flex-wrap: wrap;
 `;
 export const BoxArea = styled.div`
 
@@ -37,10 +38,19 @@ export const Resource = styled.div`
         margin-top: 8px;
         background-color: inherit;
     }
+`;
+export const ButtonArea = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    background-color: inherit;
+    width: 200px;
+    justify-content: space-around;
+
     > button {
         margin-top: 18px;
-        padding: 8px 13px;
-        font-size: 14px;
+        padding: 6px 11px;
+        font-size: 12px;
         border: none;
         border-radius: 5px;
         background: var(--color-blue);
@@ -50,6 +60,7 @@ export const Resource = styled.div`
             cursor: pointer;
         }
     }
+
 `;
 export const NewResource = styled.div`
     display: flex;
