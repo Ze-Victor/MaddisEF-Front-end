@@ -1,10 +1,11 @@
 import React, { useEffect, useState} from "react";
 import api from "../../services/api";
-import { Content, BoxArea, Resource, ButtonResource, ButtonArea, TitleResource } from "./styles";
+import { Content, BoxArea, Resource, NewResource, ButtonArea, TitleResource } from "./styles";
 import HeaderPage from "../../components/Header";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import jwt_decode from 'jwt-decode';
 
-const Resources = () => {
+const MyResources = () => {
 
     const [resources, setResources] = useState([]);
 
@@ -15,8 +16,11 @@ const Resources = () => {
         const token = localStorage.getItem("@token");
         api.defaults.headers.authorization = `Bearer ${token}`;
 
+        const decode = jwt_decode(token);
+
         if(token){
-            api.get('/resource').then(({data}) => {
+            const rota = '/resource/' + decode.sub;
+            api.get(rota).then(({data}) => {
                 setResources(data);
             }).catch(error => {
             console.log(error)
@@ -28,8 +32,12 @@ const Resources = () => {
     
     },[resources]);
 
-    function MyResources(){
-        history.push('/my-resources')
+    function Update(id){
+        history.push(`/update-resource/${id}`);
+    }
+
+    async function Delete(id){
+        await api.delete(`/resource/${id}`);
     }
 
     return (
@@ -37,9 +45,11 @@ const Resources = () => {
             <Content>
                 <HeaderPage name="Sair"/>
 
-                    <ButtonResource>
-                            <button onClick={MyResources}>Meus Recursos</button>
-                    </ButtonResource>
+                <Link to="/create-resource">
+                    <NewResource>
+                            <button>Novo+</button>
+                    </NewResource>
+                </Link>
                 
                 <BoxArea>
                     {resources?.map(resource => {
@@ -51,6 +61,8 @@ const Resources = () => {
 
                                 <ButtonArea>
                                     <button>Ver mais...</button>
+                                    <button className="update" onClick={() => Update(resource.id)}>Atualizar</button>
+                                    <button className="delete" onClick={() => Delete(resource.id)}>Delete</button>
                                 </ButtonArea>
                             </Resource>
                         )
@@ -61,4 +73,4 @@ const Resources = () => {
     );
 }
 
-export default Resources;
+export default MyResources;

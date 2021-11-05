@@ -1,11 +1,11 @@
-import React from 'react'
-import {Route, Switch} from 'react-router-dom'
-
-import Login from './pages/Login'
-import CreateUser from './pages/CreateUser'
-import Resources from './pages/Resources'
-import CreateResource from './pages/CreateResource'
-import UpdateResource from './pages/UpdateResource'
+import React from 'react';
+import {Route, Switch} from 'react-router-dom';
+import Login from './pages/Login';
+import CreateUser from './pages/CreateUser';
+import Resources from './pages/Resources';
+import CreateResource from './pages/CreateResource';
+import UpdateResource from './pages/UpdateResource';
+import MyResources from './pages/MyResources';
 
 const Routes = () => {
     return (
@@ -24,6 +24,9 @@ const Routes = () => {
             </Route>
             <Route path="/update-resource/:id">
                 <UpdateResource />
+            </Route>
+            <Route path="/my-resources">
+                <MyResources />
             </Route>
         </Switch>
     );

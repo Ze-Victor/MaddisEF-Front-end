@@ -48,9 +48,7 @@ export const ButtonArea = styled.div`
     flex-direction: row;
     background-color: inherit;
     width: 300px;
-    align-items: center;
-    justify-content: end;
-    margin-right: 30px;
+    justify-content: space-around;
 
     > button {
         padding: 6px 11px;
@@ -65,19 +63,26 @@ export const ButtonArea = styled.div`
         }
     }
 
+    .update{
+        background-color: #49A307;
+    }
+
+    .delete{
+        background-color: #D32C2C;
+    }
+
 `;
-export const ButtonResource = styled.div`
+export const NewResource = styled.div`
     display: flex;
-    width: 800px;
+    width: 720px;
     justify-content: end;
     align-items: center;
     margin-top: 15px;
-
     >button {
-        width: 120px;
+        width: 80px;
         margin-top: 18px;
         padding: 8px 13px;
-        font-size: 12px;
+        font-size: 14px;
         border: none;
         border-radius: 5px;
         background: var(--color-blue);
