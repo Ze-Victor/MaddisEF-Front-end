@@ -34,7 +34,7 @@ const UpdateResource = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleSubmitForm = async (event) => {
+    const handleSubmitForm = (event) => {
 
         event.preventDefault();
 
@@ -46,10 +46,10 @@ const UpdateResource = () => {
                 user_id: user.sub
             }
 
-            api.put(`/resource/${id}`, payload);
+            api.put(`/resource/${id}`, payload).then();
             toast.success('Recurso Atualizado!');
         
-            history.push('/resource');    
+            history.push('/my-resources');    
 
         }catch(err){
             toast.error('Erro ao atualizar recurso!');

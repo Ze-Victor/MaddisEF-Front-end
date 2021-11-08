@@ -45,11 +45,10 @@ const MyResources = () => {
             <Content>
                 <HeaderPage name="Sair"/>
 
-                <Link to="/create-resource">
                     <NewResource>
-                            <button>Novo+</button>
+                            <Link to="/resource"><button>Voltar</button></Link>
+                            <Link to="/create-resource"><button>Novo+</button></Link>
                     </NewResource>
-                </Link>
                 
                 <BoxArea>
                     {resources?.map(resource => {

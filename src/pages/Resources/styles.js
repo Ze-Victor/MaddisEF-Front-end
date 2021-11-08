@@ -69,7 +69,7 @@ export const ButtonArea = styled.div`
 export const ButtonResource = styled.div`
     display: flex;
     width: 800px;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     margin-top: 15px;
 
@@ -87,4 +87,29 @@ export const ButtonResource = styled.div`
             cursor: pointer;
         }
     }
+`;
+export const FilterResource = styled.div`
+    display: flex;
+    align-items: center;
+    > input {
+        background: var(--color-tertiary);
+        border: 1px solid var(--color-border);
+        padding: 6px 18px;
+        font-size: 14px;
+        margin-top: 18px;
+    }
+    >button {
+        width: 60px;
+        margin-top: 18px;
+        padding: 8px 13px;
+        font-size: 12px;
+        border: none;
+        background: var(--color-blue);
+        color: var(--color-tertiary);
+        &:hover{
+            opacity: 0.87;
+            cursor: pointer;
+        }
+    }
+
 `;

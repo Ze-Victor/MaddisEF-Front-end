@@ -11,6 +11,7 @@ const CreateResource = () => {
     const [titleForm, setTitleForm] = useState('');
     const [descriptionForm, setDescriptionForm] = useState('');
     const [contentForm, setContentForm] = useState('');
+    const [fileForm, setFileForm] = useState('');
 
     const [user, setUser] = useState([]);
 
@@ -35,13 +36,16 @@ const CreateResource = () => {
                 title: titleForm,
                 description: descriptionForm,
                 content: contentForm,
+                file: fileForm,
                 user_id: user.sub
             }
+
+            console.log(payload.file)
 
             api.post('/resource', payload);
             toast.success('Recurso inserido!');
         
-            history.push('/resource');    
+            history.push('/my-resources');    
 
         }catch(err){
             toast.error('Erro ao inserir recurso!');
@@ -59,6 +63,7 @@ const CreateResource = () => {
                     <input type="text" placeholder="Title" value={titleForm} onChange={e => setTitleForm(e.target.value)}/>
                     <input type="text" placeholder="Description" value={descriptionForm} onChange={e => setDescriptionForm(e.target.value)}/>
                     <input type="text" placeholder="Content" value={contentForm} onChange={e => setContentForm(e.target.value)}/>
+                    <input type="file" placeholder="Documento" value={fileForm} onChange={e => setFileForm(e.target.value)} />
 
                     <button onClick={handleSubmitForm}>Cadastrar</button>
                 </Form>

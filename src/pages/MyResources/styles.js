@@ -74,11 +74,12 @@ export const ButtonArea = styled.div`
 `;
 export const NewResource = styled.div`
     display: flex;
-    width: 720px;
-    justify-content: end;
+    width: 800px;
+    justify-content: space-between;
     align-items: center;
     margin-top: 15px;
-    >button {
+    >a{
+        >button {
         width: 80px;
         margin-top: 18px;
         padding: 8px 13px;
@@ -91,5 +92,6 @@ export const NewResource = styled.div`
             opacity: 0.87;
             cursor: pointer;
         }
+    }
     }
 `;

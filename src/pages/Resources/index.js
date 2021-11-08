@@ -1,12 +1,19 @@
 import React, { useEffect, useState} from "react";
 import api from "../../services/api";
-import { Content, BoxArea, Resource, ButtonResource, ButtonArea, TitleResource } from "./styles";
+import { Content, 
+         BoxArea,
+         Resource,
+         ButtonResource,
+         ButtonArea,
+         TitleResource,
+         FilterResource } from "./styles";
 import HeaderPage from "../../components/Header";
 import { useHistory } from "react-router-dom";
 
 const Resources = () => {
 
     const [resources, setResources] = useState([]);
+    const [search, setSearch] = useState('');
 
     const history = useHistory();
 
@@ -26,10 +33,22 @@ const Resources = () => {
         } 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     
-    },[resources]);
+    },[]);
 
     function MyResources(){
         history.push('/my-resources')
+    }
+
+    function filter(){
+
+        api.get(`/resource?filter=${search}`).then(({data}) => {
+                setResources(data);
+                console.log(data);
+        }).catch(error => {
+            console.log(error)
+        })
+
+        
     }
 
     return (
@@ -39,6 +58,12 @@ const Resources = () => {
 
                     <ButtonResource>
                             <button onClick={MyResources}>Meus Recursos</button>
+                            <FilterResource>
+                                <input type="text" placeholder="Buscar" value={search} onChange={(e) => setSearch(e.target.value)}/>
+                                <button onClick={() => filter()}>
+                                    Search
+                                </button>
+                            </FilterResource>
                     </ButtonResource>
                 
                 <BoxArea>
