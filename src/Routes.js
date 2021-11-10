@@ -6,6 +6,7 @@ import Resources from './pages/Resources';
 import CreateResource from './pages/CreateResource';
 import UpdateResource from './pages/UpdateResource';
 import MyResources from './pages/MyResources';
+import ResourcesDetails from './pages/ResourcesDetails';
 
 const Routes = () => {
     return (
@@ -24,6 +25,9 @@ const Routes = () => {
             </Route>
             <Route path="/update-resource/:id">
                 <UpdateResource />
+            </Route>
+            <Route path="/resource-details/:id">
+                <ResourcesDetails />
             </Route>
             <Route path="/my-resources">
                 <MyResources />

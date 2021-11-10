@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
 import api from "../../services/api";
-import { Content, BoxArea, Resource, NewResource, ButtonArea, TitleResource } from "./styles";
+import { Content, BoxArea, Resource, NewResource, ButtonArea, TitleResource, HeaderTitle } from "./styles";
 import HeaderPage from "../../components/Header";
 import { Link, useHistory } from "react-router-dom";
 import jwt_decode from 'jwt-decode';
@@ -40,10 +40,18 @@ const MyResources = () => {
         await api.delete(`/resource/${id}`);
     }
 
+    function Details(id){
+        history.push(`/resource-details/${id}`)
+    }
+
     return (
         <>
             <Content>
                 <HeaderPage name="Sair"/>
+
+                    <HeaderTitle>
+                        <h1> Meus Recursos</h1>
+                    </HeaderTitle>
 
                     <NewResource>
                             <Link to="/resource"><button>Voltar</button></Link>
@@ -59,7 +67,7 @@ const MyResources = () => {
                                 </TitleResource>
 
                                 <ButtonArea>
-                                    <button>Ver mais...</button>
+                                    <button onClick={() => {Details(resource.id)}}>Ver mais...</button>
                                     <button className="update" onClick={() => Update(resource.id)}>Atualizar</button>
                                     <button className="delete" onClick={() => Delete(resource.id)}>Delete</button>
                                 </ButtonArea>

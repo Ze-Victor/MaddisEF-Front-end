@@ -6,7 +6,8 @@ import { Content,
          ButtonResource,
          ButtonArea,
          TitleResource,
-         FilterResource } from "./styles";
+         FilterResource,
+         HeaderTitle } from "./styles";
 import HeaderPage from "../../components/Header";
 import { useHistory } from "react-router-dom";
 
@@ -38,6 +39,9 @@ const Resources = () => {
     function MyResources(){
         history.push('/my-resources')
     }
+    function Details(id){
+        history.push(`/resource-details/${id}`);
+    }
 
     function filter(){
 
@@ -55,6 +59,10 @@ const Resources = () => {
         <>
             <Content>
                 <HeaderPage name="Sair"/>
+
+                    <HeaderTitle>
+                        <h1>Recursos</h1>
+                    </HeaderTitle>
 
                     <ButtonResource>
                             <button onClick={MyResources}>Meus Recursos</button>
@@ -75,7 +83,7 @@ const Resources = () => {
                                 </TitleResource>
 
                                 <ButtonArea>
-                                    <button>Ver mais...</button>
+                                    <button onClick={() => Details(resource.id)}>Ver mais...</button>
                                 </ButtonArea>
                             </Resource>
                         )
