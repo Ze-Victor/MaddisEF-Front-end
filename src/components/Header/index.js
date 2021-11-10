@@ -6,7 +6,7 @@ const HeaderPage = ({name}) => {
     return (
         < Container >
             <Header>
-                <h1>MaddisEF</h1>
+                <h1>Plataforma Teste</h1>
 
                 <button><Link to={
                     name === "Cadastrar"

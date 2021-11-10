@@ -12,6 +12,18 @@ export const Content = styled.div`
             text-decoration: none;
     }
 `;
+export const HeaderTitle = styled.div`
+    width: 800px;
+    display: flex;
+    margin-top: 30px;
+    border-bottom: 1px solid var(--color-border);
+    align-items: center;
+    justify-content: center;
+    >h1{
+        margin-bottom: 20px;
+        font-size: 40px;
+    }
+`;
 export const BoxArea = styled.div`
 
     width: 720;
